@@ -1,0 +1,12 @@
+total 120
+drwxr-xr-x@  11 xtem  staff    352 22 déc 04:57 .
+drwx------@  28 xtem  staff    896 22 déc 04:57 ..
+drwxr-xr-x@  12 xtem  staff    384 20 déc 02:03 .git
+drwxr-xr-x@   3 xtem  staff     96 21 déc 18:22 .vscode
+-rw-r--r--    1 xtem  staff    525 22 déc 01:45 Makefile
+drwxr-xr-x@   4 xtem  staff    128 20 déc 00:34 include
+-rwxrwxrwx    1 xtem  staff    523 22 déc 04:56 infile
+drwxr-xr-x@ 173 xtem  staff   5536 22 déc 02:08 libft
+-rw-r--r--    1 xtem  staff      0 22 déc 06:29 outfile
+-rwxr-xr-x    1 xtem  staff  50960 22 déc 06:27 pipex
+drwxr-xr-x@   6 xtem  staff    192 22 déc 06:27 src

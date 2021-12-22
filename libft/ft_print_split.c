@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_print_split.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 00:31:00 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/22 01:57:43 by jbettini         ###   ########.fr       */
+/*   Created: 2021/12/21 18:21:27 by jbettini          #+#    #+#             */
+/*   Updated: 2021/12/21 18:21:42 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-
 #include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
 
-char    **parse_path(char **env);
-char    *parse_cmd(char **path, char **cmd);
+void    ft_print_split(char **split)
+{
+    int i;
 
-#endif
+    i = 0;
+    while (split[i])
+    {
+        write(1, "str ", 4);
+        ft_putnbr(i + 1);
+        write(1, " of split\n", 10);
+        ft_putstr(split[i]);
+        write(1, "\n\n", 2);
+        i++;
+    }
+}

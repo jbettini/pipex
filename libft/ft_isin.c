@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_isin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 00:31:00 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/22 01:57:43 by jbettini         ###   ########.fr       */
+/*   Created: 2021/12/21 18:22:21 by jbettini          #+#    #+#             */
+/*   Updated: 2021/12/21 18:22:46 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-
 #include "libft.h"
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
 
-char    **parse_path(char **env);
-char    *parse_cmd(char **path, char **cmd);
+int ft_isin(char *str, int c)
+{
+    size_t i;
 
-#endif
+    i = -1;
+    while (str[++i])
+    {
+        if (c == str[i])
+            return (1);
+    }
+    return (0);
+}

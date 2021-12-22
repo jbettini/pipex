@@ -28,6 +28,8 @@ typedef struct s_list
 # define FD_MAX 255
 # define BUFFER_SIZE 1
 
+int				ft_isin(char *str, int c);
+void			ft_print_split(char **split);
 int				ft_bytes_len(int nb);
 t_ull			ft_itb(int nb);
 void			ft_swap_str(char **a, char **b);

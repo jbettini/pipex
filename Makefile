@@ -7,6 +7,7 @@ LIB		=	-lft
 A_LIB	=	libft
 
 SRC		=	src/main.c	\
+			src/parse.c	\
 
 OBJ		=	$(SRC:%.c=%.o)
 
