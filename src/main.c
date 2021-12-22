@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:30:09 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/22 06:27:41 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/22 06:39:43 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int acces_funct(char *file, int flux)
     else
         return (open(file, O_CREAT | O_RDWR | O_TRUNC, 0644));
 }
-void    ft_close(int fd, int fd1)//, int fd2, int fd3)
+void    ft_close(int fd, int fd1, int fd2, int fd3)
 {
     close(fd);
     close(fd1);
- //   close(fd2);
- //   close(fd3);
+    close(fd2);
+    close(fd3);
 }
 
 void    exec(char **path, char *arg, char **env)
@@ -57,17 +57,17 @@ void    pipex(int infile, int outfile, char **path, char **arg, char **env)
     pid = fork();
     if (pid)
     {
-        ft_close(outfile, fd[0]);
         dup2(fd[1], 1);
         dup2(infile, 0);
+        ft_close(infile, outfile, fd[0], fd[1]);
         exec(path, arg[1], env);
         waitpid(pid, NULL, 0);
     }
     if (!pid)
     {
-        ft_close(infile, fd[1]);
         dup2(fd[0], 0);
         dup2(outfile, 1);
+        ft_close(infile, outfile, fd[0], fd[1]);
         exec(path, arg[2], env);
     }
 }
