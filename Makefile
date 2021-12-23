@@ -14,13 +14,13 @@ OBJ		=	$(SRC:%.c=%.o)
 all: include/pipex.h $(NAME)
 
 $(NAME): $(L_FT)/libft.a $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) -I$(I_DIR) -L$(A_LIB) $(LIB)
+	$(CC) -g -o $(NAME) $(OBJ) -I$(I_DIR) -L$(A_LIB) $(LIB)
 
 $(L_FT)/libft.a:
 	make -C $(L_FT) 
 
 %.o: %.c
-	$(CC) -o $@ -c $< -I$(I_DIR)
+	$(CC) -g -o $@ -c $< -I$(I_DIR)
 
 clean:
 	make clean -C $(L_FT)

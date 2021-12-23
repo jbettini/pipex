@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 01:45:15 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/22 05:58:14 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/23 04:19:45 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char    **parse_path(char **env)
     j = 0;
     while (env[i] && !ft_strnstr(env[i], "PATH=", ft_strlen(env[i])))
         i++;
-    while (ft_isin("PATH=", env[i][j]))
+    while (ft_isin("PATH=", env[i][j]) && env[i])
         j++;
     return (ft_split(env[i] + j, ':'));
 }
@@ -40,13 +40,11 @@ char    *parse_cmd(char **path, char **cmd)
         if (access(cmd_path, F_OK | X_OK) == 0)
         {
             free(tmp);
-            printf("\n\nPATH: %s\n\n",cmd_path);
             return (cmd_path);
         }
         free(cmd_path);
     }
     free(tmp);
     perror("command not found");
-    write(2, "\n", 1);
     return (NULL);
 }
