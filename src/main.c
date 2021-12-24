@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:30:09 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/24 01:28:14 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/24 08:12:05 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ int main(int ac, char **av, char **env)
     }
     else
         perror("Invalid number of argument");
+    sy
     return (0);
 }
