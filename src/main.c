@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:30:09 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/23 07:24:16 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/24 01:26:04 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,13 @@ int acces_funct(char *file, int flux)
     {
         if (access(file, F_OK) == -1)
         {
-            perror("No such file or directory\n");
+            perror("infile ");
             return (0);
         }
         return (open(file, O_RDONLY));
     }
     else
         return (open(file, O_CREAT | O_RDWR | O_TRUNC, 0644));
-}
-void    ft_close(int fd, int fd1)//, int fd2)//, int fd3)
-{
-    //if (fd != 1 && fd != 0)
-    close(fd);
-    close(fd1);
-    //close(fd2);
-    //close(fd3);
 }
 
 void    exec(char **path, char *arg, char **env)
@@ -58,20 +50,19 @@ void    ft_pipex(int infile, int outfile, char **path, char **arg, char **env)
 
     pipe(fd);
     pid = fork();
-    if (pid)
-    {
-        dup2(fd[1], 1);
-        dup2(infile, 0);
-        ft_close(outfile, fd[0]);
-        if (infile != 0)
-            exec(path, arg[1], env);
-        waitpid(pid, NULL, 0);
-    }
     if (!pid)
     {
-        dup2(fd[0], 0);
+        dup2(infile, 0);
+        dup2(fd[1], 1);
+        close(fd[0]);
+        exec(path, arg[1], env);
+        waitpid(pid, NULL, 0);
+    }
+    if (pid)
+    {
         dup2(outfile, 1);
-        ft_close(infile, fd[1]);
+        dup2(fd[0], 0);
+        close(fd[1]);
         exec(path, arg[2], env);
     }
 }
@@ -99,7 +90,6 @@ int main(int ac, char **av, char **env)
         make_pipex(arg, env);
     }
     else
-        perror("Invalid Argument");
-    //system("leaks pipex");
+        perror("Invalid number of argument");
     return (0);
 }

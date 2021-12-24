@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 01:45:15 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/23 04:19:45 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/24 01:24:35 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ char    *parse_cmd(char **path, char **cmd)
         free(cmd_path);
     }
     free(tmp);
-    perror("command not found");
+    perror("command not found ");
     return (NULL);
 }
