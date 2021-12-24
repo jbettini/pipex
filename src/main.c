@@ -6,7 +6,7 @@
 /*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 00:30:09 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/24 01:26:04 by jbettini         ###   ########.fr       */
+/*   Updated: 2021/12/24 01:28:14 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void    ft_pipex(int infile, int outfile, char **path, char **arg, char **env)
         dup2(infile, 0);
         dup2(fd[1], 1);
         close(fd[0]);
-        exec(path, arg[1], env);
+        if(infile)
+            exec(path, arg[1], env);
         waitpid(pid, NULL, 0);
     }
     if (pid)
