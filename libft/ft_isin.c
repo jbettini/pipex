@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbettini <jbettini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbettini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 18:22:21 by jbettini          #+#    #+#             */
-/*   Updated: 2021/12/21 18:22:46 by jbettini         ###   ########.fr       */
+/*   Created: 2021/12/25 14:42:28 by jbettini          #+#    #+#             */
+/*   Updated: 2021/12/25 14:42:36 by jbettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isin(char *str, int c)
+int	ft_isin(char *str, int c)
 {
-    size_t i;
+	size_t	i;
 
-    i = -1;
-    while (str[++i])
-    {
-        if (c == str[i])
-            return (1);
-    }
-    return (0);
+	i = -1;
+	while (str[++i])
+	{
+		if (c == str[i])
+			return (1);
+	}
+	return (0);
 }
